@@ -1,40 +1,80 @@
 /* ------------------------------------------
-CSS3 FACEBOOK-STYLE BUTTONS (Nicolas Gallagher)
-Licensed under Unlicense
+CSS3 FACEBOOK-STYLE BUTTONS
+Fork by Stephan Schmitz:
+http://github.com/eyecatchup/css3-facebook-buttons
+Based on work by Nicolas Gallagher:
 http://github.com/necolas/css3-facebook-buttons
+
+Changes:
+Added vendor-specific background-image properties
+to enhance cross-browser-compatibility.
+
+Supported Browsers:
+Chrome  3+
+IE      5.5+
+Firefox 3.6+
+Opera   8+
+Safari  3+
+
+Note: Place the following condition below CSS link
+to override of 'filter' to 'none' for SVG with IE:
+
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .uibutton {
+      filter: none;
+    }
+  </style>
+<![endif]-->
+
+A great guide on CSS gradients:
+http://7synth.com/dev/gradients
 ------------------------------------------ */
 
 
-/* ------------------------------------------------------------------------------------------------------------- BUTTON */
+/* ---------------------------------------
+--- GENERAL BUTTON SYTLE --- */
 
-.uibutton { 
-    position: relative; 
+.uibutton {
+    position: relative;
     z-index: 1;
-    overflow: visible; 
-    display: inline-block; 
-    padding: 0.3em 0.6em 0.375em; 
-    border: 1px solid #999; 
+    overflow: visible;
+    display: inline-block;
+    padding: 0.3em 0.6em 0.375em;
+    border: 1px solid #999;
     border-bottom-color: #888;
     margin: 0;
-    text-decoration: none; 
+    text-decoration: none;
     text-align: center;
-    font: bold 11px/normal 'lucida grande', tahoma, verdana, arial, sans-serif; 
-    white-space: nowrap; 
-    cursor: pointer; 
+    font: bold 11px/normal 'lucida grande', tahoma, verdana, arial, sans-serif;
+    white-space: nowrap;
+    cursor: pointer;
     /* outline: none; */
-    color: #333; 
-    background-color: #eee;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f6f6), to(#e4e4e3));
-    background-image: -moz-linear-gradient(#f5f6f6, #e4e4e3);
-    background-image: -o-linear-gradient(#f5f6f6, #e4e4e3);
-    background-image: linear-gradient(#f5f6f6, #e4e4e3);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f6f6', EndColorStr='#e4e4e3'); /* for IE 6 - 9 */
+    color: #333;
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
     -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
+    /* Old browsers */
+    background-color: #eee;
+    /* Chrome 3-9, Safari 3-5 */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f5f6f6), color-stop(1, #e4e3e3));
+    /* Chrome 10+, Safari 5.1+ */
+    background-image: -webkit-linear-gradient(top, #f5f6f6 0%, #e4e3e3 100%);
+    /* FF 3.6+ */
+    background-image:    -moz-linear-gradient(top, #f5f6f6 0%, #e4e3e3 100%);
+    /* IE 10 */
+    background-image:     -ms-linear-gradient(top, #f5f6f6 0%, #e4e3e3 100%);
+    /* Opera 11.10+ */
+    background-image:      -o-linear-gradient(top, #f5f6f6 0%, #e4e3e3 100%);
+    /* W3C */
+    background-image:         linear-gradient(top, #f5f6f6 0%, #e4e3e3 100%);
+    /* IE 9, Opera 8-11 */
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y1ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNGUzZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+");
+    /* IE 5.5-8 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f5f6f6', endColorStr='#e4e4e3', GradientType=0);
     /* IE hacks */
-    zoom: 1; 
-    *display: inline; 
+    zoom: 1;
+    *display: inline;
 }
 
 .uibutton:hover,
@@ -58,17 +98,18 @@ http://github.com/necolas/css3-facebook-buttons
     border: 0;
 }
 
-/* ............................................................................................................. Icons */
+/* ---------------------------------------
+--- ADD ICON SYTLES --- */
 
 .uibutton.icon:before {
     content: "";
-    position: relative; 
-    top: 1px; 
+    position: relative;
+    top: 1px;
     float:left;
-    width: 10px; 
-    height: 12px; 
-    margin: 0 0.5em 0 0; 
-    background: url(fb-icons.png) 99px 99px no-repeat;
+    width: 10px;
+    height: 12px;
+    margin: 0 0.5em 0 0;
+    background: url("fb-icons.png") 99px 99px no-repeat;
 }
 
 .uibutton.edit:before  { background-position: 0 0; }
@@ -77,28 +118,40 @@ http://github.com/necolas/css3-facebook-buttons
 .uibutton.prev:before  { background-position: -30px 0; }
 .uibutton.next:before  { float:right; margin: 0 -0.25em 0 0.5em; background-position: -40px 0; }
 
-/* ------------------------------------------------------------------------------------------------------------- BUTTON EXTENSIONS */
-
-/* ............................................................................................................. Large */
+/* ---------------------------------------
+--- BUTTON SIZE */
 
 .uibutton.large {
     font-size: 13px;
 }
 
-/* ............................................................................................................. Submit, etc */
+/* ---------------------------------------
+--- BLUE BUTTON SYTLES --- */
 
 .uibutton.confirm {
     border-color: #29447e #29447e #1a356e;
     color: #fff;
-    background-color: #5B74A8;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#637bad), to(#5872a7));
-    background-image: -moz-linear-gradient(#637bad, #5872a7);
-    background-image: -o-linear-gradient(#637bad, #5872a7);
-    background-image: linear-gradient(#637bad, #5872a7);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#637bad', EndColorStr='#5872a7'); /* for IE 6 - 9 */
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
     -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #8a9cc2;
+    /* Old browsers */
+    background-color: #5B74A8;
+    /* Chrome 3-9, Safari 3-5  */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #637bad), color-stop(1, #5872a7));
+    /* Chrome 10+, Safari 5.1+ */
+    background-image: -webkit-linear-gradient(top, #637bad 0%, #5872a7 100%);
+    /* FF 3.6+ */
+    background-image:    -moz-linear-gradient(top, #637bad 0%, #5872a7 100%);
+    /* IE 10 */
+    background-image:     -ms-linear-gradient(top, #637bad 0%, #5872a7 100%);
+    /* Opera 11.10+ */
+    background-image:      -o-linear-gradient(top, #637bad 0%, #5872a7 100%);
+    /* W3C */
+    background-image:         linear-gradient(top, #637bad 0%, #5872a7 100%);
+    /* IE 9, Opera 8-11 */
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzYzN2JhZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM1ODcyYTciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+");
+    /* IE 5.5-8 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#637bad', endColorStr='#5872a7', GradientType=0);
 }
 
 .uibutton.confirm:active {
@@ -110,20 +163,33 @@ http://github.com/necolas/css3-facebook-buttons
     box-shadow: none;
 }
 
-/* ............................................................................................................. Special */
+/* ---------------------------------------
+--- GREEN BUTTON SYTLES --- */
 
 .uibutton.special {
     border-color: #3b6e22 #3b6e22 #2c5115;
     color: #fff;
-    background-color: #69a74e;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#75ae5c), to(#67a54b));
-    background-image: -moz-linear-gradient(#75ae5c, #67a54b);
-    background-image: -o-linear-gradient(#75ae5c, #67a54b);
-    background-image: linear-gradient(#75ae5c, #67a54b);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#75ae5c', EndColorStr='#67a54b'); /* for IE 6 - 9 */
     -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;
     -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;
+    /* Old browsers */
+    background-color: #69a74e;
+    /* Chrome 3-9, Safari 3-5 */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #75ae5c), color-stop(1, #67a54b));
+    /* Chrome 10+, Safari 5.1+ */
+    background-image: -webkit-linear-gradient(top, #75ae5c 0%, #67a54b 100%);
+    /* FF 3.6+ */
+    background-image:    -moz-linear-gradient(top, #75ae5c 0%, #67a54b 100%);
+    /* IE 10 */
+    background-image:     -ms-linear-gradient(top, #75ae5c 0%, #67a54b 100%);
+    /* Opera 11.10+ */
+    background-image:      -o-linear-gradient(top, #75ae5c 0%, #67a54b 100%);
+    /* W3C */
+    background-image:         linear-gradient(top, #75ae5c 0%, #67a54b 100%);
+    /* IE 9, Opera 8-11 */
+    background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzc1YWU1YyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2N2E1NGIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+");
+    /* IE 5.5-8 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#75ae5c', endColorstr='#67a54b', GradientType=0);
 }
 
 .uibutton.special:active {
@@ -135,7 +201,8 @@ http://github.com/necolas/css3-facebook-buttons
     box-shadow: none;
 }
 
-/* ............................................................................................................. Disable */
+/* ---------------------------------------
+--- DISABLED BUTTON SYTLES --- */
 
 .uibutton.disable {
     z-index: 0;
@@ -165,7 +232,8 @@ http://github.com/necolas/css3-facebook-buttons
     opacity: 0.5;
 }
 
-/* ------------------------------------------------------------------------------------------------------------- BUTTON GROUPS */
+/* ---------------------------------------
+--- BUTTON GROUP SYTLES --- */
 
 .uibutton-group {
     display: inline-block;
@@ -173,8 +241,8 @@ http://github.com/necolas/css3-facebook-buttons
     padding: 0;
     margin: 0;
     /* IE hacks */
-    zoom: 1; 
-    *display: inline; 
+    zoom: 1;
+    *display: inline;
 }
 
 .uibutton + .uibutton,
@@ -192,7 +260,7 @@ http://github.com/necolas/css3-facebook-buttons
 
 .uibutton-group .uibutton {
     float: left;
-    margin-left: -1px; 
+    margin-left: -1px;
 }
 
 .uibutton-group .uibutton:hover,
@@ -202,12 +270,13 @@ http://github.com/necolas/css3-facebook-buttons
 }
 
 .uibutton-group > .uibutton:first-child,
-.uibutton-group li:first-child .uibutton { 
-    margin-left: 0; 
+.uibutton-group li:first-child .uibutton {
+    margin-left: 0;
 }
 
-/* ------------------------------------------------------------------------------------------------------------- BUTTON CONTAINER */
-/* For mixing buttons and button groups, e.g., in a navigation bar */
+/* ---------------------------------------
+--- BUTTON WRAPPER SYTLES
+--- (For mixing buttons and button groups, e.g., in a navigation bar) --- */
 
 .uibutton-toolbar {
     padding: 6px;

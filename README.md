@@ -57,8 +57,8 @@ A range of icons can be added (only for links and buttons) by adding a class of 
 
 ## Browser compatibility ##
 
-Full support: Firefox 3.5+, Google Chrome, Safari 4+, IE 9+, Opera 11.10+.
-Note: Some CSS3 enhancements are not supported in older versions of Opera and IE. The use of icons is not supported in IE 6 or IE 7.
+Full support: Firefox 3.6+, Google Chrome 3+, Safari 3+, IE 5.5+, Opera 8+.
+Note: Some CSS3 enhancements are not supported in older versions of Opera and IE. The use of icons is not supported in IE 5.5-7.
 
 ## License ##
 

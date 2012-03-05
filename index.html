@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="utf-8"> 
+<!DOCTYPE html>
+<html lang="en">
+<head profile="http://gmpg.org/xfn/11">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>CSS3 Facebook Buttons</title> 
-    <meta name="description" content="Using CSS3 to create Facebook-style buttons from links, buttons, and inputs"> 
+    <meta name="description" content="Using CSS3 (or sprites) to create Facebook-style buttons from links, buttons, and inputs"> 
     <style>
         /* ------------------------------------------------------------------------------------------------------------- RESET */
 
@@ -68,11 +68,28 @@
 <body onload="prettyPrint()">
 
 <div class="container">
-    <a class="ribbon" href="http://github.com/necolas/css3-facebook-buttons" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+    <a class="ribbon" href="https://github.com/eyecatchup/css3-facebook-buttons/" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
     
     <div class="header">
         <h1>CSS3 Facebook Buttons</h1>
         <p>The easiest way to make people think: "Wow, this app must be as good as Facebook!".</b></p>
+    </div>
+
+    <div class="section">
+        <h2>IE Condition</h2>
+        <p>To create background gradients for IE 9 and some older versions (8-11) of Opera, this fork uses base64 encoded strings of SVG data which are attached as background-image.</p>
+		<p>Therefore, and because IE 10 has its own vendor prefix, IE 9+ needs to override 'filter' to 'none'. Thus, you need to add the following condition in your head.</p>
+
+        <div class="example">
+            <pre class="prettyprint"><code>&lt;!--[if gte IE 9]>
+  &lt;style type="text/css">
+    .uibutton {
+      filter: none;
+    }
+  &lt;/style>
+&lt;![endif]-->
+</code></pre>
+        </div>
     </div>
     
     <div class="section">
@@ -203,8 +220,8 @@
 
     <div class="section">
         <h2>Browser compatibility</h2>
-        <p>Full support: Firefox 3.5+, Google Chrome, Safari 4+, IE 9+, Opera 11.10+.</p>
-        <p><strong>Note:</strong> Some CSS3 enhancements are not supported in older versions of Opera and IE. The use of icons is not supported in IE 6 or IE 7.</p>
+        <p>Full support: Firefox 3.6+, Google Chrome 3+, Safari 3+, IE 5.5+, Opera 8+.</p>
+        <p><strong>Note:</strong> Some CSS3 enhancements are not supported in older versions of Opera and IE. The use of icons is not supported in IE 5.5-7.</p>
     </div>
 
     <div class="section">
@@ -215,6 +232,7 @@
 
 <div class="footer">
     <a href="http://github.com/necolas/css3-facebook-buttons">CSS3 Facebook Buttons</a> by <a href="http://nicolasgallagher.com">Nicolas Gallagher</a>.
+    <a href="https://github.com/eyecatchup/css3-facebook-buttons/">Fork</a> by <a href="https://plus.google.com/u/0/110937633080014620803/about" rel="me">Stephan Schmitz</a>.
 </div>
 
 </body>

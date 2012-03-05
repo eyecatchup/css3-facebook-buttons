@@ -1,6 +1,22 @@
 # CSS3 Facebook-style Buttons #
 
-Example: [nicolasgallagher.com/lab/css3-facebook-buttons/](http://nicolasgallagher.com/lab/css3-facebook-buttons/)
+Examples: [nicolasgallagher.com/lab/css3-facebook-buttons/](http://nicolasgallagher.com/lab/css3-facebook-buttons/)
+
+## IE CONDITION ##
+
+To create background gradients for IE 9 and some older versions (8-11) of Opera, this fork uses base64 encoded strings of SVG data which are attached as background-image.
+
+Therefore, and because IE 10 has its own vendor prefix, IE 9+ needs to override 'filter' to 'none'. Thus, you need to add the following condition in your head.
+
+```css
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .uibutton {
+      filter: none;
+    }
+  </style>
+<![endif]-->
+```
 
 ## Buttons ##
 
